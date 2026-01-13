@@ -73,9 +73,8 @@ body {
     background-color: #c4a7e7 !important;
 }
 
-/* Input fields */
+/* Input fields - use transparent background to inherit container styling */
 input, textarea, select {
-    background-color: #26233a !important;
     color: #e0def4 !important;
     border-color: #6e6a86 !important;
 }
@@ -84,4 +83,15 @@ input:focus, textarea:focus, select:focus {
 }
 input::placeholder {
     color: #6e6a86 !important;
+}
+
+/* Only apply background to inputs that need it (not search bars) */
+input[type="text"]:not([class*="search"]),
+input[type="password"],
+input[type="email"],
+input[type="number"],
+textarea,
+select {
+    background-color: #26233a !important;
+    border-radius: var(--border-radius) !important;
 }
