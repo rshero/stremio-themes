@@ -54,42 +54,38 @@
     --color-placeholder-background: rgba(31, 29, 46, 0.6);
 }
 
-/* Body background - gradient for UI, black for video player */
-body:not(:has(.player-container)) {
+/* Body background - ALWAYS BLACK to support video player */
+/* Apply gradient to non-player routes only */
+body {
+    background: #000000 !important;
+}
+
+/* Apply gradient to specific route containers (not player) */
+.board-container,
+.discover-container,
+.library-container,
+.addons-container,
+.settings-container,
+.metadetails-container,
+.search-container {
+    min-height: 100vh;
     background: linear-gradient(135deg, #191724 0%, #1f1d2e 50%, #26233a 100%) !important;
 }
 
 /* ============================================ */
 /* Fix for video player in stremio-linux-shell */
 /* ============================================ */
-/* MPV renders video to OpenGL FBO. The issue is that when the */
-/* webview has transparent backgrounds, it doesn't properly composite */
-/* with the MPV video layer below it. */
+/* MPV renders video to OpenGL texture (back_texture) and CEF renders */
+/* the UI to another texture (front_texture). These are composited by */
+/* the shader. The body is now always black (see above), so the player */
+/* background won't block the MPV video. */
 
-/* CRITICAL: When player is active, html/body must be solid black */
-html:has(.player-container),
-body:has(.player-container) {
-    background: #000000 !important;
-    background-image: none !important;
-}
-
-/* Player container and all video layers must be solid black */
-.player-container,
-.player-container .layer:first-child,
-.player-container .video-container,
-.player-container .video-container .video {
-    background: #000000 !important;
+/* Player container background - black (inherits from body) */
+.player-container {
     background-color: #000000 !important;
-    background-image: none !important;
 }
 
-/* All other layers (UI elements) can be transparent */
-.player-container .layer:not(:first-child) {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-
-/* Hide background layer (poster image) */
+/* Hide background poster image layer - it blocks the video */
 .player-container .background-layer {
     display: none !important;
 }
