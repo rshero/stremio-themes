@@ -77,15 +77,28 @@ body {
 /* ============================================ */
 /* MPV renders video to OpenGL texture (back_texture) and CEF renders */
 /* the UI to another texture (front_texture). These are composited by */
-/* the shader. The body is now always black (see above), so the player */
-/* background won't block the MPV video. */
+/* the shader in mod.rs. If CSS properties interfere with CEF's alpha */
+/* channel rendering, the video won't show through. */
 
-/* Player container background - black (inherits from body) */
+/* Player container - minimal styling to avoid CEF rendering issues */
 .player-container {
-    background-color: #000000 !important;
+    background-color: rgba(0, 0, 0, 1) !important;
 }
 
-/* Hide background poster image layer - it blocks the video */
+/* Video layer - ensure it doesn't have any background that blocks MPV */
+.player-container > .layer:first-of-type,
+.player-container .video-container,
+.player-container .video-container .video {
+    background: none !important;
+    background-color: rgba(0, 0, 0, 0) !important;
+    background-image: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+}
+
+/* Hide background poster */
 .player-container .background-layer {
     display: none !important;
 }
