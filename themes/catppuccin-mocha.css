@@ -64,29 +64,6 @@ body {
     background-color: #cba6f7 !important;
 }
 
-/* Buttons */
-button, [class*="button"] {
-    color: #cdd6f4 !important;
-}
-
-[class*="play-button"], [class*="action-button"] {
-    background-color: #cba6f7 !important;
-    color: #1e1e2e !important;
-}
-[class*="play-button"]:hover, [class*="action-button"]:hover {
-    background-color: #b4befe !important;
-}
-
-/* Icons */
-svg, [class*="icon"] {
-    color: inherit;
-    fill: currentColor;
-}
-[class*="play-icon"] svg, [class*="play"] svg {
-    color: #1e1e2e !important;
-    fill: #1e1e2e !important;
-}
-
 /* Input fields */
 input, textarea, select {
     background-color: #313244 !important;
@@ -98,69 +75,4 @@ input:focus, textarea:focus, select:focus {
 }
 input::placeholder {
     color: #6c7086 !important;
-}
-
-/* Cards */
-[class*="card"], [class*="poster"], [class*="meta-item"] {
-    background-color: #313244 !important;
-}
-[class*="card"]:hover, [class*="poster"]:hover {
-    background-color: #45475a !important;
-}
-
-/* Navigation */
-[class*="navbar"], [class*="nav-bar"], [class*="sidebar"] {
-    background-color: #181825 !important;
-}
-[class*="selected"], [class*="active"] {
-    background-color: rgba(203, 166, 247, 0.2) !important;
-}
-
-/* Modals */
-[class*="modal"], [class*="popup"], [class*="dialog"] {
-    background-color: #313244 !important;
-    border-color: #45475a !important;
-}
-
-/* Toggle */
-[class*="toggle"][class*="on"], [class*="switch"][class*="active"] {
-    background-color: #cba6f7 !important;
-}
-
-/* Progress bars */
-[class*="progress"] {
-    background-color: #45475a !important;
-}
-[class*="progress-bar"], [class*="progress-fill"], [class*="progress"] > div {
-    background-color: #cba6f7 !important;
-}
-
-/* Links */
-a, [class*="link"] {
-    color: #89b4fa !important;
-}
-a:hover, [class*="link"]:hover {
-    color: #b4befe !important;
-}
-
-/* Badges */
-[class*="badge"], [class*="tag"], [class*="label"] {
-    background-color: #45475a !important;
-    color: #cdd6f4 !important;
-}
-
-/* Tooltips */
-[class*="tooltip"] {
-    background-color: #313244 !important;
-    color: #cdd6f4 !important;
-}
-
-/* Dropdowns */
-[class*="multiselect"], [class*="dropdown"] {
-    background-color: #313244 !important;
-    color: #cdd6f4 !important;
-}
-[class*="multiselect"] [class*="option"]:hover,
-[class*="dropdown"] [class*="option"]:hover {
-    background-color: #45475a !important;
 }

@@ -1,0 +1,87 @@
+/**
+ * Rose Pine Theme for Stremio
+ * 
+ * An elegant dark theme with rose and pine accents.
+ * https://rosepinetheme.com/
+ * 
+ * Rose Pine Colors:
+ *   - Base: #191724
+ *   - Surface: #1f1d2e
+ *   - Overlay: #26233a
+ *   - Muted: #6e6a86
+ *   - Subtle: #908caa
+ *   - Text: #e0def4
+ *   - Love: #eb6f92 (red/pink)
+ *   - Gold: #f6c177 (yellow/orange)
+ *   - Rose: #ebbcba (pink)
+ *   - Pine: #31748f (teal/cyan)
+ *   - Foam: #9ccfd8 (light cyan)
+ *   - Iris: #c4a7e7 (purple)
+ */
+
+:root {
+    /* Primary backgrounds */
+    --primary-background-color: #191724;
+    --secondary-background-color: #1f1d2e;
+    
+    /* Foreground colors */
+    --primary-foreground-color: #e0def4;
+    --secondary-foreground-color: #191724;
+    
+    /* Accent colors - key fix: using colors with good contrast */
+    --primary-accent-color: #c4a7e7;      /* Iris - purple for primary actions */
+    --secondary-accent-color: #eb6f92;    /* Love - pink/red for secondary actions (was green!) */
+    --tertiary-accent-color: #f6c177;     /* Gold - yellow/orange */
+    --quaternary-accent-color: #9ccfd8;   /* Foam - light cyan */
+    
+    /* Modal and overlay */
+    --modal-background-color: #26233a;
+    --overlay-color: rgba(38, 35, 58, 0.7);
+    
+    /* Status colors */
+    --warning-accent-color: #f6c177;      /* Gold */
+    --danger-accent-color: #eb6f92;       /* Love */
+    
+    /* Glow effect */
+    --outer-glow: 0px 0px 15px rgba(196, 167, 231, 0.3);
+    
+    /* Border radius */
+    --border-radius: 0.75rem;
+    
+    /* Placeholder colors */
+    --color-placeholder: rgba(110, 106, 134, 0.5);
+    --color-placeholder-text: #908caa;
+    --color-placeholder-background: rgba(31, 29, 46, 0.6);
+}
+
+/* Body background */
+body {
+    background: linear-gradient(135deg, #191724 0%, #1f1d2e 50%, #26233a 100%) !important;
+}
+
+/* Selection highlight */
+::selection {
+    background-color: rgba(196, 167, 231, 0.3);
+    color: #e0def4;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar-thumb {
+    background-color: #26233a !important;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #c4a7e7 !important;
+}
+
+/* Input fields */
+input, textarea, select {
+    background-color: #26233a !important;
+    color: #e0def4 !important;
+    border-color: #6e6a86 !important;
+}
+input:focus, textarea:focus, select:focus {
+    border-color: #c4a7e7 !important;
+}
+input::placeholder {
+    color: #6e6a86 !important;
+}
