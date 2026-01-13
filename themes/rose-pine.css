@@ -59,6 +59,20 @@ body {
     background: linear-gradient(135deg, #191724 0%, #1f1d2e 50%, #26233a 100%) !important;
 }
 
+/* Fix for video player in stremio-linux-shell */
+/* The video element needs transparent/black background for mpv rendering */
+.player-container,
+.video-container,
+.video-container .video {
+    background: transparent !important;
+}
+
+/* Ensure player container has black background, not the gradient */
+.player-container {
+    background-color: #000000 !important;
+    background-image: none !important;
+}
+
 /* Selection highlight */
 ::selection {
     background-color: rgba(196, 167, 231, 0.3);
