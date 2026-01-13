@@ -1,0 +1,166 @@
+/**
+ * Catppuccin Mocha Theme for Stremio
+ * 
+ * A dark theme with warm, cozy colors from the Catppuccin palette.
+ * https://github.com/catppuccin/catppuccin
+ * 
+ * Usage: 
+ *   1. Go to Settings > Appearance
+ *   2. Enter the URL to this CSS file
+ *   3. Click "Apply Theme"
+ */
+
+:root {
+    /* Primary backgrounds */
+    --primary-background-color: #1e1e2e;
+    --secondary-background-color: #181825;
+    
+    /* Foreground colors - high contrast text */
+    --primary-foreground-color: #cdd6f4;
+    --secondary-foreground-color: #1e1e2e;
+    
+    /* Accent colors */
+    --primary-accent-color: #cba6f7;      /* Mauve */
+    --secondary-accent-color: #a6e3a1;    /* Green */
+    --tertiary-accent-color: #f9e2af;     /* Yellow */
+    --quaternary-accent-color: #89b4fa;   /* Blue */
+    
+    /* Modal and overlay */
+    --modal-background-color: #313244;
+    --overlay-color: rgba(69, 71, 90, 0.6);
+    
+    /* Status colors */
+    --warning-accent-color: #fab387;      /* Peach */
+    --danger-accent-color: #f38ba8;       /* Red */
+    
+    /* Glow effect */
+    --outer-glow: 0px 0px 15px rgba(203, 166, 247, 0.3);
+    
+    /* Border radius */
+    --border-radius: 0.75rem;
+    
+    /* Placeholder colors */
+    --color-placeholder: rgba(166, 173, 200, 0.5);
+    --color-placeholder-text: #a6adc8;
+    --color-placeholder-background: rgba(49, 50, 68, 0.6);
+}
+
+/* Body gradient */
+body {
+    background: linear-gradient(135deg, #1e1e2e 0%, #181825 50%, #11111b 100%) !important;
+}
+
+/* Selection highlight */
+::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+    color: #cdd6f4;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar-thumb {
+    background-color: #45475a !important;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #cba6f7 !important;
+}
+
+/* Buttons */
+button, [class*="button"] {
+    color: #cdd6f4 !important;
+}
+
+[class*="play-button"], [class*="action-button"] {
+    background-color: #cba6f7 !important;
+    color: #1e1e2e !important;
+}
+[class*="play-button"]:hover, [class*="action-button"]:hover {
+    background-color: #b4befe !important;
+}
+
+/* Icons */
+svg, [class*="icon"] {
+    color: inherit;
+    fill: currentColor;
+}
+[class*="play-icon"] svg, [class*="play"] svg {
+    color: #1e1e2e !important;
+    fill: #1e1e2e !important;
+}
+
+/* Input fields */
+input, textarea, select {
+    background-color: #313244 !important;
+    color: #cdd6f4 !important;
+    border-color: #45475a !important;
+}
+input:focus, textarea:focus, select:focus {
+    border-color: #cba6f7 !important;
+}
+input::placeholder {
+    color: #6c7086 !important;
+}
+
+/* Cards */
+[class*="card"], [class*="poster"], [class*="meta-item"] {
+    background-color: #313244 !important;
+}
+[class*="card"]:hover, [class*="poster"]:hover {
+    background-color: #45475a !important;
+}
+
+/* Navigation */
+[class*="navbar"], [class*="nav-bar"], [class*="sidebar"] {
+    background-color: #181825 !important;
+}
+[class*="selected"], [class*="active"] {
+    background-color: rgba(203, 166, 247, 0.2) !important;
+}
+
+/* Modals */
+[class*="modal"], [class*="popup"], [class*="dialog"] {
+    background-color: #313244 !important;
+    border-color: #45475a !important;
+}
+
+/* Toggle */
+[class*="toggle"][class*="on"], [class*="switch"][class*="active"] {
+    background-color: #cba6f7 !important;
+}
+
+/* Progress bars */
+[class*="progress"] {
+    background-color: #45475a !important;
+}
+[class*="progress-bar"], [class*="progress-fill"], [class*="progress"] > div {
+    background-color: #cba6f7 !important;
+}
+
+/* Links */
+a, [class*="link"] {
+    color: #89b4fa !important;
+}
+a:hover, [class*="link"]:hover {
+    color: #b4befe !important;
+}
+
+/* Badges */
+[class*="badge"], [class*="tag"], [class*="label"] {
+    background-color: #45475a !important;
+    color: #cdd6f4 !important;
+}
+
+/* Tooltips */
+[class*="tooltip"] {
+    background-color: #313244 !important;
+    color: #cdd6f4 !important;
+}
+
+/* Dropdowns */
+[class*="multiselect"], [class*="dropdown"] {
+    background-color: #313244 !important;
+    color: #cdd6f4 !important;
+}
+[class*="multiselect"] [class*="option"]:hover,
+[class*="dropdown"] [class*="option"]:hover {
+    background-color: #45475a !important;
+}
