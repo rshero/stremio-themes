@@ -54,23 +54,44 @@
     --color-placeholder-background: rgba(31, 29, 46, 0.6);
 }
 
-/* Body background */
-body {
+/* Body background - gradient for UI, black for video player */
+body:not(:has(.player-container)) {
     background: linear-gradient(135deg, #191724 0%, #1f1d2e 50%, #26233a 100%) !important;
 }
 
+/* ============================================ */
 /* Fix for video player in stremio-linux-shell */
-/* The video element needs transparent/black background for mpv rendering */
-.player-container,
-.video-container,
-.video-container .video {
-    background: transparent !important;
+/* ============================================ */
+/* MPV renders video to OpenGL FBO. The issue is that when the */
+/* webview has transparent backgrounds, it doesn't properly composite */
+/* with the MPV video layer below it. */
+
+/* CRITICAL: When player is active, html/body must be solid black */
+html:has(.player-container),
+body:has(.player-container) {
+    background: #000000 !important;
+    background-image: none !important;
 }
 
-/* Ensure player container has black background, not the gradient */
-.player-container {
+/* Player container and all video layers must be solid black */
+.player-container,
+.player-container .layer:first-child,
+.player-container .video-container,
+.player-container .video-container .video {
+    background: #000000 !important;
     background-color: #000000 !important;
     background-image: none !important;
+}
+
+/* All other layers (UI elements) can be transparent */
+.player-container .layer:not(:first-child) {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Hide background layer (poster image) */
+.player-container .background-layer {
+    display: none !important;
 }
 
 /* Selection highlight */
