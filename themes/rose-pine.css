@@ -54,13 +54,14 @@
     --color-placeholder-background: rgba(31, 29, 46, 0.6);
 }
 
-/* Body background - ALWAYS BLACK to support video player */
-/* Apply gradient to non-player routes only */
+/* Body background - black to support video player in shell */
+/* NOTE: Do NOT use !important here - breaks CEF video rendering */
 body {
-    background: #000000 !important;
+    background: #000000;
 }
 
 /* Apply gradient to specific route containers (not player) */
+/* NOTE: Do NOT combine min-height with gradient - breaks CEF video rendering in shell */
 .board-container,
 .discover-container,
 .library-container,
@@ -68,40 +69,10 @@ body {
 .settings-container,
 .metadetails-container,
 .search-container {
-    min-height: 100vh;
     background: linear-gradient(135deg, #191724 0%, #1f1d2e 50%, #26233a 100%) !important;
 }
 
-/* ============================================ */
-/* Fix for video player in stremio-linux-shell */
-/* ============================================ */
-/* MPV renders video to OpenGL texture (back_texture) and CEF renders */
-/* the UI to another texture (front_texture). These are composited by */
-/* the shader in mod.rs. If CSS properties interfere with CEF's alpha */
-/* channel rendering, the video won't show through. */
-
-/* Player container - minimal styling to avoid CEF rendering issues */
-.player-container {
-    background-color: rgba(0, 0, 0, 1) !important;
-}
-
-/* Video layer - ensure it doesn't have any background that blocks MPV */
-.player-container > .layer:first-of-type,
-.player-container .video-container,
-.player-container .video-container .video {
-    background: none !important;
-    background-color: rgba(0, 0, 0, 0) !important;
-    background-image: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-    filter: none !important;
-    backdrop-filter: none !important;
-}
-
-/* Hide background poster */
-.player-container .background-layer {
-    display: none !important;
-}
+/* Player - no special fixes needed as long as we avoid min-height + gradient combo above */
 
 /* Selection highlight */
 ::selection {
